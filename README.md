@@ -1,10 +1,12 @@
 # Implementación de algoritmo de submuestreo para Support Vector Regression en conjuntos de grandes volúmenes de datos​
 
-_Estaba pensando en poner algo del abstract o de la introducción de tu texto_
+_Las máquinas de vectores de soporte son un algoritmo de aprendizaje supervisado para la clasificación y la regresión introducido por Vladimir Vapnik y otros en los años 60. Este algoritmo ha mostrado resultados impresionantes cuando se trata de clasificar o predecir datos lineales y no lineales gracias a las funciones kernel que le ayudan a generalizar datos más complejos. A pesar de los impresionantes resultados, este algoritmo no es adecuado para grandes conjuntos de datos porque se vuelve inmanejable desde el punto de vista computacional y requiere demasiado tiempo de entrenamiento. Proponemos una implementación extendida y novedosa de un algoritmo de submuestra propuesto por (1) enfocado en regresión de vectores de soporte (SVR) y utilizando el lenguaje de programación Python junto con optimización de hiperparámetros. Comparamos diferentes métricas como RMSE, MAE, $R^2$ y obtuvimos resultados interesantes, haciendo que nuestra propuesta de implementación sea hasta 20,8 veces más rápida que el algoritmo SVR solo._
+
+Traducción realizada con la versión gratuita del traductor www.DeepL.com/Translator
 
 ## Contenido del repositorio 📌
 
-_El proyecto está compuesto por los notebooks en los que se realizó la aplicación del algoritmo de submuestreo, el cual se encuentra definido en un archivo _**.py**_. Detalladamente, cada uno se enfoca en un conjunto de dato específicos que se describen de la siguiente manera:_
+_El proyecto está compuesto por los notebooks en los que se realizó la aplicación del algoritmo de submuestreo, el cual se encuentra definido en un archivo _**.py**_. Detalladamente, cada uno se enfoca en un conjunto de datos específicos que se describen de la siguiente manera:_
 
 - El conjuto de datos _Temp Electric Motor_ es un archivo csv que comprende varios datos de sensores recopilados de un motor síncrono de imanes permanentes (PMSM). Las características objetivo más interesantes son la temperatura del rotor ("pm"), las temperaturas del estator ("stator_*") y el par.
     Tomado de: <https://www.kaggle.com/wkirgsn/electric-motor-temperature>
@@ -61,12 +63,14 @@ SetS = trainD.drop (subsample_index, eje = 0)
 
 ## Bibliografía 📖
 
-_Nearest neighbors methods for support vector machines, Camelo, S. A.,González-Lima, M. D.,Quiroz, A. J._
+_(1)Nearest neighbors methods for support vector machines, Camelo, S. A.,González-Lima, M. D.,Quiroz, A. J._
 
 
 ## Expresiones de Gratitud 🎁
 
-* Gracias...
+* A los profes Aníbal Sosa y María de los Ángeles Lima por todo su apoyo y guía durante el proyecto.
+* A la universidad Icesi, y los profes por toda la experiencia y enseñanzas durante el programa.
+* A mi compañera y amiga Ana Muñoz por su colaboración y entusiasmo por el aprendizaje.
 
 
 
