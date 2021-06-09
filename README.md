@@ -2,7 +2,6 @@
 
 _Las máquinas de vectores de soporte son un algoritmo de aprendizaje supervisado para la clasificación y la regresión introducido por Vladimir Vapnik y otros en los años 60. Este algoritmo ha mostrado resultados impresionantes cuando se trata de clasificar o predecir datos lineales y no lineales gracias a las funciones kernel que le ayudan a generalizar datos más complejos. A pesar de los impresionantes resultados, este algoritmo no es adecuado para grandes conjuntos de datos porque se vuelve inmanejable desde el punto de vista computacional y requiere demasiado tiempo de entrenamiento. Proponemos una implementación extendida y novedosa de un algoritmo de submuestra propuesto por (1) enfocado en regresión de vectores de soporte (SVR) y utilizando el lenguaje de programación Python junto con optimización de hiperparámetros. Comparamos diferentes métricas como RMSE, MAE, $R^2$ y obtuvimos resultados interesantes, haciendo que nuestra propuesta de implementación sea hasta 20,8 veces más rápida que el algoritmo SVR solo._
 
-Traducción realizada con la versión gratuita del traductor www.DeepL.com/Translator
 
 ## Contenido del repositorio 📌
 
