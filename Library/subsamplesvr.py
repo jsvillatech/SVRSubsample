@@ -37,7 +37,7 @@ import time
 import math
 
 
-def svr_subsample_bayes_train(trainD,testD,sig,ep,y_label_name,kernel_type,num_neighbors,thres,rs=45):
+def svr_subsample_bayes_train(trainD,testD,sig,ep,y_label_name,kernel_type,num_neighbors,rs=45):
 
     """
     Implementation of algorithm #2 based on Nearest neighbors methods for support vector machines, 
@@ -50,7 +50,6 @@ def svr_subsample_bayes_train(trainD,testD,sig,ep,y_label_name,kernel_type,num_n
     :param y_label_name: Column name of the target variable
     :param kernel_type: Type of kernel ('linear', 'poly', 'rbf')
     :param num_neighbors: Number of neighbors to look for (5 when sig=0.01 or 3 when sig=0.1)
-    :param thres: Threshold for the callback function on_step
     :param rs: random_state seed for the reproducibility of the experiment
     :return: The best trained SVR Model
     """
@@ -79,19 +78,12 @@ def svr_subsample_bayes_train(trainD,testD,sig,ep,y_label_name,kernel_type,num_n
     },
     cv=3,
     n_jobs=3,
-    n_iter=10,
     verbose=3
     )
-    # callback handler
-    def on_step_0(optim_result):
-        score = svr_0.best_score_
-        print("best score: %s" % score)
-        if score >= 0.10:
-            print('Interrupting!')
-            return True
+
     #Train the model
     startTrain0 = time.time()
-    svr_0.fit(subsampleT.loc[:,subsampleT.columns!=y_label_name], subsampleT.loc[:,y_label_name],callback=on_step_0)
+    svr_0.fit(subsampleT.loc[:,subsampleT.columns!=y_label_name], subsampleT.loc[:,y_label_name])
     endTrain0 = time.time()
     print("++++++ TRAIN TIME (0) "+str(endTrain0 - startTrain0)+" +++++++++++")
 
@@ -154,19 +146,11 @@ def svr_subsample_bayes_train(trainD,testD,sig,ep,y_label_name,kernel_type,num_n
     },
     cv=3,
     n_jobs=3,
-    n_iter=10,
     verbose=3
     )
-    # callback handler
-    def on_step_1(optim_result):
-        score = svr_1.best_score_
-        print("best score: %s" % score)
-        if score >= thres:
-            print('Interrupting!')
-            return True
 
     startTrain1 = time.time()
-    svr_1.fit(subsampleT1.loc[:,subsampleT1.columns!=y_label_name], subsampleT1.loc[:,y_label_name],callback=on_step_1)
+    svr_1.fit(subsampleT1.loc[:,subsampleT1.columns!=y_label_name], subsampleT1.loc[:,y_label_name])
     endTrain1 = time.time()
     print("++++++ TRAIN TIME (1) "+str(endTrain1 - startTrain1)+" +++++++++++")
     
@@ -224,19 +208,12 @@ def svr_subsample_bayes_train(trainD,testD,sig,ep,y_label_name,kernel_type,num_n
             },
     		cv=3,
     		n_jobs=3,
-    		n_iter=10,
     		verbose=3
             )
-            # callback handler
-            def on_step_iter(optim_result):
-                score = svr_iter.best_score_
-                print("best score: %s" % score)
-                if score >= thres:
-                    print('Interrupting!')
-                    return True
+
             #Train the model
             startTrain_iter = time.time()
-            svr_iter.fit(last_df.loc[:,last_df.columns!=y_label_name], last_df.loc[:,y_label_name],callback=on_step_iter)
+            svr_iter.fit(last_df.loc[:,last_df.columns!=y_label_name], last_df.loc[:,y_label_name])
             endTrain_iter = time.time()
             print("++++++ TRAIN TIME (ITER) "+str(endTrain_iter - startTrain_iter)+" +++++++++++")
 
